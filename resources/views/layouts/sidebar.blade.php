@@ -8,23 +8,25 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="/">
-                    Stream
+                    StreamFrame
                 </a>
             </li>
             <li>
-                <a href="{{{url('#')}}}">Parent Task</a>
+                <a href="{{url('task/create')}}"> Task</a>
+            </li>
+            <li>
+                <a href="{{url('task/show')}}">All Task List</a>
+            </li>
+            <li>
+                <a href="{{url('#')}}">Parent Task</a>
             </li>
 
             <li>
-                <a href="{{{url('#')}}}">Sub-Task</a>
+                <a href="{{url('#')}}">Task </a>
             </li>
 
             <li>
-                <a href="{{{url('#')}}}">Task List</a>
-            </li>
-
-            <li>
-                <a href="{{{url('login')}}}">Sign In</a>
+                <a href="{{url('login')}}">Sign In</a>
             </li>
 
             <li>
