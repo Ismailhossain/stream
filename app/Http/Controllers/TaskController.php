@@ -6,6 +6,7 @@ use App\Status;
 use Illuminate\Http\Request;
 
 use App\Task;
+use App\Parenttask;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -33,8 +34,10 @@ class TaskController extends Controller
     public function create()
     {
         $tasks = Task::all();
+        $parenttasks = Parenttask::all();
+        $getstatus = Status::all();
 
-        return view('task.add', compact('tasks'));
+        return view('task.add', compact('tasks','getstatus','parenttasks'));
     }
 
     /**
@@ -46,16 +49,21 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',                        // just a normal required validation
+            'title' => 'required|unique:tasks',                        // just a normal required validation
+            'status' => 'required',                        // just a normal required validation
+            'parent_id' => 'required',                        // just a normal required validation
         ]);
 
-        $task = new Task;
-        $task->title = $request->title;
+        $tasks = new Task;
+        $tasks->title = $request->title;
+        $tasks->status = $request->status;
+        $tasks->parent_id = $request->parent_id;
 
-        $task->save();
+        $tasks->save();
 
         Session::flash('message', 'Successfully created Task!');
-        return Redirect::back();
+        return Redirect::to('task/show');
+//        return Redirect::back();
 
     }
 
@@ -82,7 +90,11 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $tasks = Task::find($id);
+        $parenttasks = Parenttask::all();
+        $getstatus = Status::all();
+        return view('task.update', compact('parenttasks','getstatus','tasks'));
     }
 
     /**
@@ -92,9 +104,26 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'status' => 'required',
+            'parent_id' => 'required'
+        ]);
+
+
+        $task_id = Input::get('id');
+        $tasks = Task::find($task_id);
+        $tasks->title = $request->title;
+        $tasks->status = $request->status;
+        $tasks->parent_id = $request->parent_id;
+
+
+        $tasks->save();
+
+        Session::flash('message', 'Successfully updated the Task!');
+        return Redirect::to('task/show');
     }
 
     /**
@@ -105,6 +134,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tasks = Task::find($id);
+        $tasks->delete();
+        Session::flash('message', 'Successfully Deleted the Task!');
+        return Redirect::to('task/show');
     }
 }

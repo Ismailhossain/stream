@@ -12,19 +12,13 @@
 
     <title>
         @section('title')
-            Laravel
+            StreamFrame
         @show
         {{--@yield('title', 'Laravel')--}}
 
     </title>
 
     <!-- Bootstrap Core CSS -->
-    {{--<link href="assests/css/bootstrap.min.css" rel="stylesheet" type="text/css">--}}
-    {{--<link href="assests/css/font-awesome.min.css" rel="stylesheet" type="text/css">--}}
-    {{--<link href="assests/css/bootstrap-theme.css" rel="stylesheet" type="text/css">--}}
-    {{--<link href="assests/css/jquery.validate.css" rel="stylesheet" type="text/css">--}}
-
-    {{--{!! HTML::style( asset('assests/css/bootstrap.min.css')) !!}--}}
 
 
 
@@ -35,24 +29,14 @@
     {!! Html::style('assests/css/jquery.validate.css') !!}
 
 
-    {{--{{ Html::style('laravelfiles/assests/css/bootstrapValidator.min.css') }}--}}
 
     @yield('styles')
 
     <!-- Custom CSS -->
-    {{--<link href="assests/css/simple-sidebar.css" rel="stylesheet" type="text/css">--}}
 
     {!! Html::style('assests/css/simple-sidebar.css') !!}
 
 
-    <!-- Html5 Shim and Respond.js IE8 support of Html5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-
-    <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
-    <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
-
-    {{--<![endif]-->--}}
 
 
     {!! Html::script('assests/js/respond.min.js') !!}
@@ -61,14 +45,8 @@
 
     <!-- jQuery -->
 
-    {{--<script src="assests/js/jquery.js"></script>--}}
 
 
-    {{--<script src="assests/js/jquery-1.11.0.min.js" type="text/javascript" ></script>--}}
-    {{--<script src="assests/js/jquery.validate.js" type="text/javascript" ></script>--}}
-    {{--<script src="assests/js/jquery.validation.functions.js" type="text/javascript" ></script>--}}
-
-    {{--{{ Html::script('laravelfiles/assests/js/jquery.js') }}--}}
     {!! Html::script('assests/js/jquery.min.js') !!}
     {!! Html::script('assests/js/jquery.validate.js') !!}
     {!! Html::script('assests/js/jquery.validation.functions.js') !!}
@@ -79,11 +57,9 @@
 
     <!-- Bootstrap Core JavaScript -->
 
-    {{--<script src="assests/js/bootstrap.min.js" type="text/javascript" ></script>--}}
 
     {!! Html::script('assests/js/bootstrap.min.js') !!}
 
-    {{--{{ Html::script('laravelfiles/assests/js/bootstrapValidator.min.js') }}--}}
 
     <!-- Menu Toggle Script -->
     <script>

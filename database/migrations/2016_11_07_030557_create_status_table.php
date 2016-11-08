@@ -16,6 +16,7 @@ class CreateStatusTable extends Migration
         Schema::create('status', function(Blueprint $table)
         {
             $table->increments('id')->unsigned();
+            $table->integer('title_id');
             $table->string('title');
             $table->timestamps();
 //            $table->softDeletes();

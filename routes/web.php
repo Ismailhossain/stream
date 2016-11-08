@@ -21,6 +21,18 @@ Route::get('/home', 'HomeController@index');
 
 
 
+
+// Parent Task
+
+
+Route::get('parent_task/create', array('uses' => 'ParenttaskController@create'));
+Route::post('parent_task/store', array('uses' => 'ParenttaskController@store'));
+Route::get('parent_task/show', array('uses' => 'ParenttaskController@show'));
+Route::get('parent_task/edit/{id}', array('uses' => 'ParenttaskController@edit'));
+Route::post('parent_task/update', array('uses' => 'ParenttaskController@update'));
+Route::get('parent_task/destroy/{id}', array('uses' => 'ParenttaskController@destroy'));
+
+
 // Task
 
 
@@ -35,12 +47,3 @@ Route::get('task/destroy/{id}', array('uses' => 'TaskController@destroy'));
 
 
 
-// Sub Task
-
-
-Route::get('sub_task/create', array('uses' => 'SubtaskController@create'));
-Route::post('sub_task/store', array('uses' => 'SubtaskController@store'));
-Route::get('sub_task/show', array('uses' => 'SubtaskController@show'));
-Route::get('sub_task/edit/{id}', array('uses' => 'SubtaskController@edit'));
-Route::post('sub_task/update', array('uses' => 'SubtaskController@update'));
-Route::get('sub_task/destroy/{id}', array('uses' => 'SubtaskController@destroy'));

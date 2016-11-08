@@ -26,5 +26,14 @@ class Status extends Model
      * @return QueryBuilder
      */
 
+    public function parenttasks()
+    {
+        return $this->belongsToMany(Parenttask::class);
+    }
+
+    public function tasks()
+    {
+        return $this->belongsToMany(Task::class);
+    }
 
 }

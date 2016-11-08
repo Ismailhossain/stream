@@ -24,10 +24,16 @@ class Task extends Model
      *
      * @return QueryBuilder
      */
-//    public function subtasks()
-//    {
-//        return $this->belongsToMany(Subtask::class);
-//    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
+    public function parenttasks()
+    {
+        return $this->belongsTo(Parenttask::class);
+    }
 
 //    public function hasSubtasks(Subtask $subtasks)
 //    {

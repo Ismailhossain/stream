@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h1>Task List</h1>
+    <h1>Parent Task List</h1>
 
     <!-- will be used to show any messages -->
     @if (Session::has('message'))
@@ -21,26 +21,26 @@
         <thead>
         <tr>
             <td>ID</td>
-            <td>Task Name</td>
-            <td>Status ID</td>
-            <td>Parent Task ID</td>
+            <td>Parent Task Name</td>
+            <td>Status</td>
             <td>Actions</td>
         </tr>
         </thead>
         <tbody>
-        @foreach($tasks as $task)
+        @foreach($parenttasks as $parenttask)
             <tr>
-                <td>{{ $task->id }}</td>
-                <td>{{ $task->title }}</td>
-                <td>{{ $task->status }}</td>
-                <td>{{ $task->parent_id }}</td>
+                <td>{{ $parenttask->id }}</td>
 
+                <td>{{ $parenttask->title }}</td>
+
+
+                <td>{{ $parenttask->status }}</td>
 
                 <td>
 
-                    <a class="btn btn-small btn-info" href="{{url('task/edit/'.$task->id)}}">Edit this Task</a>
+                    <a class="btn btn-small btn-info" href="{{url('parent_task/edit/'.$parenttask->id)}}">Edit this Task</a>
 
-                    <a class="btn btn-small btn-success" href="{{ url('task/destroy/' . $task->id) }}">Delete this Task</a>
+                    <a class="btn btn-small btn-success" href="{{ url('parent_task/destroy/' . $parenttask->id) }}">Delete this Task</a>
 
                 </td>
 
@@ -48,7 +48,7 @@
         @endforeach
         </tbody>
     </table>
-    {{--<div class="pagination"> {!! str_replace('/?', '?', $task->render()) !!}--}}
+    {{--<div class="pagination"> {!! str_replace('/?', '?', $parenttask->render()) !!}--}}
 
     </div>
 

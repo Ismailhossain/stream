@@ -1,16 +1,9 @@
 @extends('layouts.master')
 
-
-@section('title')
-    @parent
-
-    | Add Task
-@stop
-
 @section('content')
 
     @if(isset($errors))
-        <div class="alert-danger">
+        <div class="bg-danger">
 
 
             @foreach($errors->all() as $error)
@@ -27,44 +20,49 @@
     @endif
 
 
-    {!!   Form::open(array('url' => 'task/store',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
+    {!!  Form::open(array('url' => 'task/update',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
 
 
     <fieldset>
 
-        <legend>Add Task</legend>
+        <legend>Add/Update Task</legend>
+        <input type="hidden" name="id" value="{{$tasks->id}}">
+
+
         <div class="form-group">
-            <label for="title" class="col-sm-2 control-label"> Task Name</label>
+            <label for="title" class="col-sm-2 control-label">Name</label>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" name="title" value="{{Input::old('title')}}" id="title"
-                       placeholder="Title">
-
+                <input type="text" class="form-control" name="title" value="{{$tasks->title}}" id="title"
+                       placeholder="title">
             </div>
         </div>
+
         <div class="form-group">
-            <label for="status" class="col-sm-2 control-label">Status</label>
+            <label for="status" class="col-sm-2 control-label">Status ID</label>
 
             <div class="col-sm-3">
-                <select name="status" id="status" class="form-control" >
+                <select name="status" id="status" class="form-control">
                     @foreach($getstatus as $status)
-                        <option value="{{$status->title_id}}">{{$status->title}}</option>
+                        <option value="{{$status->title_id}}"
+                                @if($status->title_id==$tasks->status) selected='selected' @endif   >{{$status->title}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
+
         <div class="form-group">
             <label for="parent_id" class="col-sm-2 control-label">Parent Task ID</label>
 
             <div class="col-sm-3">
-                <select name="parent_id" id="parent_id" class="form-control" >
+                <select name="parent_id" id="parent_id" class="form-control">
                     @foreach($parenttasks as $parenttask)
-                        <option value="{{$parenttask->id}}">{{$parenttask->title}}</option>
+                        <option value="{{$parenttask->id}}"
+                                @if($parenttask->id==$tasks->parent_id) selected='selected' @endif   >{{$parenttask->title}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -72,8 +70,6 @@
             </div>
         </div>
     </fieldset>
-
-
     {!! Form::close() !!}
 
 

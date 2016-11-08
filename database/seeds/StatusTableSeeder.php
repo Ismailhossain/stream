@@ -17,11 +17,13 @@ class StatusTableSeeder extends Seeder
         }
         Status::create([
             'id'            => 1,
+            'title_id'            => 0,
             'title'          => 'IN PROGRESS'
 
         ]);
         Status::create([
             'id'            => 2,
+            'title_id'            => 1,
             'title'          => 'DONE'
 
 
@@ -29,6 +31,7 @@ class StatusTableSeeder extends Seeder
         ]);
         Status::create([
             'id'            => 3,
+            'title_id'            => 2,
             'title'          => 'COMPLETE'
 
 
