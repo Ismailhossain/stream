@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\MaintaskTask;
 use App\Status;
 use Illuminate\Http\Request;
 
 use App\Task;
-use App\Parenttask;
+use App\Maintask;
+use App\Http\Requests;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-//use Illuminate\Contracts\Pagination;
+use Illuminate\Contracts\Pagination;
 
 
 class TaskController extends Controller
@@ -34,10 +36,10 @@ class TaskController extends Controller
     public function create()
     {
         $tasks = Task::all();
-        $parenttasks = Parenttask::all();
+        $maintasks = Maintask::all();
         $getstatus = Status::all();
 
-        return view('task.add', compact('tasks','getstatus','parenttasks'));
+        return view('task.add', compact('tasks','getstatus','maintasks'));
     }
 
     /**
@@ -61,6 +63,15 @@ class TaskController extends Controller
 
         $tasks->save();
 
+
+        $task_id = $tasks->id;
+        $parent_id = $tasks->parent_id;
+
+        $maintasktasks = new MaintaskTask;
+        $maintasktasks->task_id = $task_id;
+        $maintasktasks->maintask_id = $parent_id;
+        $maintasktasks->save();
+
         Session::flash('message', 'Successfully created Task!');
         return Redirect::to('task/show');
 //        return Redirect::back();
@@ -75,9 +86,9 @@ class TaskController extends Controller
      */
     public function show()
     {
-        $tasks = Task::all();
+//        $tasks = Task::all();
 
-//          $tasks = Task::paginate(5);
+          $tasks = Task::paginate(20);
 
         return view('task.show', compact('tasks'));
     }
@@ -92,9 +103,9 @@ class TaskController extends Controller
     {
 
         $tasks = Task::find($id);
-        $parenttasks = Parenttask::all();
+        $maintasks = Maintask::all();
         $getstatus = Status::all();
-        return view('task.update', compact('parenttasks','getstatus','tasks'));
+        return view('task.update', compact('maintasks','getstatus','tasks'));
     }
 
     /**
@@ -119,8 +130,16 @@ class TaskController extends Controller
         $tasks->status = $request->status;
         $tasks->parent_id = $request->parent_id;
 
-
         $tasks->save();
+
+//        $parent_id = $tasks->parent_id;
+//        $taskid = $tasks->id;
+//
+//        $maintasktasks = new MaintaskTask;
+//        $maintasktasks->task_id = $taskid;
+//        $maintasktasks->maintask_id = $parent_id;
+//
+//        $maintasktasks->save();
 
         Session::flash('message', 'Successfully updated the Task!');
         return Redirect::to('task/show');

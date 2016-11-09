@@ -12,17 +12,20 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('parent_task/create')}}">Add Parent Task</a>
+                <a href="{{url('maintask/create')}}">Add Parent Task</a>
             </li>
 
             <li>
-                <a href="{{url('parent_task/show')}}">Parent Task List  </a>
+                <a href="{{url('maintask/show')}}">Parent Task List  </a>
             </li>
             <li>
                 <a href="{{url('task/create')}}">Add Task</a>
             </li>
             <li>
-                <a href="{{url('task/show')}}">All Task List</a>
+                <a href="{{url('task/show')}}">Task List</a>
+            </li>
+            <li>
+                <a href="{{url('alltask/show')}}">All Task List</a>
             </li>
             <li>
                 <a href="{{url('login')}}">Sign In</a>

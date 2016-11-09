@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Parenttask;
+use App\Maintask;
 use App\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 
-class ParenttaskController extends Controller
+class MaintaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,10 +28,10 @@ class ParenttaskController extends Controller
      */
     public function create()
     {
-        $parenttasks = Parenttask::all();
+        $maintasks = Maintask::all();
         $getstatus = Status::all();
 
-        return view('parenttask.add', compact('parenttasks','getstatus'));
+        return view('maintask.add', compact('maintasks','getstatus'));
     }
 
     /**
@@ -43,14 +43,14 @@ class ParenttaskController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|unique:parents',                        // just a normal required validation
+            'title' => 'required|unique:maintasks',                        // just a normal required validation
             'status' => 'required',                        // just a normal required validation
         ]);
 
-        $parenttask = new Parenttask;
-        $parenttask->title = $request->title;
-        $parenttask->status = $request->status;
-        $parenttask->save();
+        $maintask = new Maintask;
+        $maintask->title = $request->title;
+        $maintask->status = $request->status;
+        $maintask->save();
 
         Session::flash('message', 'Successfully Added Parent Task!');
         return Redirect::back();
@@ -64,11 +64,11 @@ class ParenttaskController extends Controller
      */
     public function show()
     {
-        $parenttasks = Parenttask::all();
+        $maintasks = Maintask::all();
 
-//          $parenttasks = Parenttask::paginate(5);
+//          $maintasks = Maintask::paginate(5);
 
-        return view('parenttask.show', compact('parenttasks'));
+        return view('maintask.show', compact('maintasks'));
     }
 
     /**
@@ -79,9 +79,9 @@ class ParenttaskController extends Controller
      */
     public function edit($id)
     {
-        $parenttasks = Parenttask::find($id);
+        $maintasks = Maintask::find($id);
         $getstatus = Status::all();
-        return view('parenttask.update', compact('parenttasks','getstatus','selectedstatus'));
+        return view('maintask.update', compact('maintasks','getstatus'));
     }
 
     /**
@@ -100,15 +100,15 @@ class ParenttaskController extends Controller
 
 
         $parent_id = Input::get('id');
-        $parenttasks = Parenttask::find($parent_id);
-        $parenttasks->title = $request->title;
-        $parenttasks->status = $request->status;
+        $maintasks = Maintask::find($parent_id);
+        $maintasks->title = $request->title;
+        $maintasks->status = $request->status;
 
 
-        $parenttasks->save();
+        $maintasks->save();
 
         Session::flash('message', 'Successfully updated the Parent Task!');
-        return Redirect::to('parent_task/show');
+        return Redirect::to('maintask/show');
 
     }
 
@@ -120,9 +120,9 @@ class ParenttaskController extends Controller
      */
     public function destroy($id)
     {
-        $parenttasks = Parenttask::find($id);
-        $parenttasks->delete();
+        $maintasks = Maintask::find($id);
+        $maintasks->delete();
         Session::flash('message', 'Successfully Deleted the Parent Task!');
-        return Redirect::to('parent_task/show');
+        return Redirect::to('maintask/show');
     }
 }

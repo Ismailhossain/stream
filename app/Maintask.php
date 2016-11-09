@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Maintask extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'tasks';
+    protected $table = 'maintasks';
 
     /*
     |--------------------------------------------------------------------------
@@ -24,19 +24,15 @@ class Task extends Model
      *
      * @return QueryBuilder
      */
-
     public function status()
     {
         return $this->belongsTo(Status::class);
     }
 
-    public function maintasks()
+    public function tasks()
     {
-        return $this->belongsTo(Maintask::class);
+        return $this->belongsToMany(Task::class);
     }
-//    public function alltasks()
-//    {
-//        return $this->belongsTo(MaintaskTask::class);
-//    }
+
 
 }

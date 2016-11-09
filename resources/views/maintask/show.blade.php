@@ -27,20 +27,20 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($parenttasks as $parenttask)
+        @foreach($maintasks as $maintask)
             <tr>
-                <td>{{ $parenttask->id }}</td>
+                <td>{{ $maintask->id }}</td>
 
-                <td>{{ $parenttask->title }}</td>
+                <td>{{ $maintask->title }}</td>
 
 
-                <td>{{ $parenttask->status }}</td>
+                <td>{{ $maintask->status }}</td>
 
                 <td>
 
-                    <a class="btn btn-small btn-info" href="{{url('parent_task/edit/'.$parenttask->id)}}">Edit this Task</a>
+                    <a class="btn btn-small btn-info" href="{{url('maintask/edit/'.$maintask->id)}}">Edit this Task</a>
 
-                    <a class="btn btn-small btn-success" href="{{ url('parent_task/destroy/' . $parenttask->id) }}">Delete this Task</a>
+                    <a class="btn btn-small btn-success" href="{{ url('maintask/destroy/' . $maintask->id) }}">Delete this Task</a>
 
                 </td>
 
@@ -48,7 +48,7 @@
         @endforeach
         </tbody>
     </table>
-    {{--<div class="pagination"> {!! str_replace('/?', '?', $parenttask->render()) !!}--}}
+    {{--<div class="pagination"> {!! str_replace('/?', '?', $maintasks->render()) !!}--}}
 
     </div>
 

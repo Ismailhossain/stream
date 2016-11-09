@@ -58,8 +58,8 @@
 
             <div class="col-sm-3">
                 <select name="parent_id" id="parent_id" class="form-control" >
-                    @foreach($parenttasks as $parenttask)
-                        <option value="{{$parenttask->id}}">{{$parenttask->title}}</option>
+                    @foreach($maintasks as $maintask)
+                        <option value="{{$maintask->id}}">{{$maintask->title}}</option>
                     @endforeach
                 </select>
             </div>

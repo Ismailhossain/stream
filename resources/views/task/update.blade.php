@@ -56,9 +56,9 @@
 
             <div class="col-sm-3">
                 <select name="parent_id" id="parent_id" class="form-control">
-                    @foreach($parenttasks as $parenttask)
-                        <option value="{{$parenttask->id}}"
-                                @if($parenttask->id==$tasks->parent_id) selected='selected' @endif   >{{$parenttask->title}}</option>
+                    @foreach($maintasks as $maintask)
+                        <option value="{{$maintask->id}}"
+                                @if($maintask->id==$tasks->parent_id) selected='selected' @endif   >{{$maintask->title}}</option>
                     @endforeach
                 </select>
             </div>

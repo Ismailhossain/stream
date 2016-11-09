@@ -22,7 +22,7 @@
         <tr>
             <td>ID</td>
             <td>Task Name</td>
-            <td>Status ID</td>
+            <td>Task Status</td>
             <td>Parent Task ID</td>
             <td>Actions</td>
         </tr>
@@ -48,7 +48,7 @@
         @endforeach
         </tbody>
     </table>
-    {{--<div class="pagination"> {!! str_replace('/?', '?', $task->render()) !!}--}}
+    <div class="pagination"> {!! str_replace('/?', '?', $tasks->render()) !!}
 
     </div>
 

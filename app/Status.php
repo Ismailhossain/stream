@@ -28,7 +28,7 @@ class Status extends Model
 
     public function parenttasks()
     {
-        return $this->belongsToMany(Parenttask::class);
+        return $this->belongsToMany(Maintask::class);
     }
 
     public function tasks()

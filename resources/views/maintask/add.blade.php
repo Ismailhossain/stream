@@ -27,7 +27,7 @@
     @endif
 
 
-    {!!   Form::open(array('url' => 'parent_task/store',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
+    {!!   Form::open(array('url' => 'maintask/store',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
 
 
     <fieldset>
@@ -43,16 +43,7 @@
             </div>
         </div>
 
-        {{--<div class="form-group">--}}
-            {{--<label for="status" class="col-sm-2 control-label">Parent Task Status</label>--}}
-
-            {{--<div class="col-sm-3">--}}
-                {{--<input type="status" class="form-control" name="status" value="{{Input::old('status')}}" id="status"--}}
-                       {{--placeholder="Status">--}}
-
-            {{--</div>--}}
-        {{--</div>--}}
-
+ 
         <div class="form-group">
             <label for="status" class="col-sm-2 control-label">Status</label>
 

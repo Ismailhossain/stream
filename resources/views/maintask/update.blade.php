@@ -20,20 +20,20 @@
     @endif
 
 
-    {!!  Form::open(array('url' => 'parent_task/update',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
+    {!!  Form::open(array('url' => 'maintask/update',  'method'=>'post', 'class'=>'form-horizontal inline','files'=> true)) !!}
 
 
     <fieldset>
 
         <legend>Add/Update Parent Task</legend>
-        <input type="hidden" name="id" value="{{$parenttasks->id}}">
+        <input type="hidden" name="id" value="{{$maintasks->id}}">
 
 
         <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Name</label>
 
             <div class="col-sm-3">
-                <input type="text" class="form-control" name="title" value="{{$parenttasks->title}}" id="title"
+                <input type="text" class="form-control" name="title" value="{{$maintasks->title}}" id="title"
                        placeholder="title">
             </div>
         </div>
@@ -45,7 +45,7 @@
                 <select name="status" id="status" class="form-control">
                     @foreach($getstatus as $status)
                         <option value="{{$status->title_id}}"
-                                @if($status->title_id==$parenttasks->status) selected='selected' @endif   >{{$status->title}}</option>
+                                @if($status->title_id==$maintasks->status) selected='selected' @endif   >{{$status->title}}</option>
                     @endforeach
                 </select>
             </div>

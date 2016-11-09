@@ -22,15 +22,15 @@ Route::get('/home', 'HomeController@index');
 
 
 
-// Parent Task
+// Main/Parent Task
 
 
-Route::get('parent_task/create', array('uses' => 'ParenttaskController@create'));
-Route::post('parent_task/store', array('uses' => 'ParenttaskController@store'));
-Route::get('parent_task/show', array('uses' => 'ParenttaskController@show'));
-Route::get('parent_task/edit/{id}', array('uses' => 'ParenttaskController@edit'));
-Route::post('parent_task/update', array('uses' => 'ParenttaskController@update'));
-Route::get('parent_task/destroy/{id}', array('uses' => 'ParenttaskController@destroy'));
+Route::get('maintask/create', array('uses' => 'MaintaskController@create'));
+Route::post('maintask/store', array('uses' => 'MaintaskController@store'));
+Route::get('maintask/show', array('uses' => 'MaintaskController@show'));
+Route::get('maintask/edit/{id}', array('uses' => 'MaintaskController@edit'));
+Route::post('maintask/update', array('uses' => 'MaintaskController@update'));
+Route::get('maintask/destroy/{id}', array('uses' => 'MaintaskController@destroy'));
 
 
 // Task
@@ -46,4 +46,9 @@ Route::get('task/destroy/{id}', array('uses' => 'TaskController@destroy'));
 
 
 
+// All Task
+Route::get('alltask/show', array('uses' => 'AlltaskController@show'));
+Route::get('alltask/edit/{id}', array('uses' => 'AlltaskController@edit'));
+Route::post('alltask/update', array('uses' => 'AlltaskController@update'));
+Route::get('alltask/destroy/{id}', array('uses' => 'AlltaskController@destroy'));
 
