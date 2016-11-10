@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 
 use App\Maintask;
 
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Contracts\Pagination;
 
 class AlltaskController extends Controller
 {
@@ -54,9 +56,10 @@ class AlltaskController extends Controller
     public function show()
     {
 
-//        $maintasks = Maintask::all();
+        $maintasks = Maintask::all();
         $alltasks = MaintaskTask::all();
-        return view('alltask.show', compact('alltasks'));
+        $tasks = Task::all();
+        return view('alltask.show', compact('alltasks','maintasks','tasks'));
     }
 
     /**
@@ -67,11 +70,7 @@ class AlltaskController extends Controller
      */
     public function edit($id)
     {
-        $alltasks = MaintaskTask::find($id);
-        $maintasks = Maintask::all();
-        $tasks = Task::all();
-        $getstatus = Status::all();
-        return view('alltask.update', compact('alltasks','maintasks','tasks','getstatus'));
+
     }
 
     /**
@@ -83,7 +82,8 @@ class AlltaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
     }
 
     /**

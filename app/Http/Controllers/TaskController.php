@@ -132,14 +132,14 @@ class TaskController extends Controller
 
         $tasks->save();
 
-//        $parent_id = $tasks->parent_id;
-//        $taskid = $tasks->id;
-//
-//        $maintasktasks = new MaintaskTask;
-//        $maintasktasks->task_id = $taskid;
-//        $maintasktasks->maintask_id = $parent_id;
-//
-//        $maintasktasks->save();
+        $parent_id = $tasks->parent_id;
+        $taskid = $tasks->id;
+
+        $maintasktasks = MaintaskTask::find($task_id);
+        $maintasktasks->task_id = $taskid;
+        $maintasktasks->maintask_id = $parent_id;
+
+        $maintasktasks->save();
 
         Session::flash('message', 'Successfully updated the Task!');
         return Redirect::to('task/show');

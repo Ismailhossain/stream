@@ -24,15 +24,15 @@ class Maintask extends Model
      *
      * @return QueryBuilder
      */
-    public function status()
-    {
-        return $this->belongsTo(Status::class);
-    }
+//    public function status()
+//    {
+//        return $this->belongsTo(Status::class);
+//    }
 
-    public function tasks()
-    {
-        return $this->belongsToMany(Task::class);
-    }
 
+//    public function tasks()
+//    {
+//        return $this->belongsToMany(Task::class);
+//    }
 
 }

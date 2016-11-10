@@ -25,18 +25,16 @@ class Task extends Model
      * @return QueryBuilder
      */
 
-    public function status()
-    {
-        return $this->belongsTo(Status::class);
-    }
-
-    public function maintasks()
-    {
-        return $this->belongsTo(Maintask::class);
-    }
-//    public function alltasks()
+//    public function status()
 //    {
-//        return $this->belongsTo(MaintaskTask::class);
+//        return $this->belongsTo(Status::class);
 //    }
+
+
+//    public function maintasks()
+//    {
+//        return $this->belongsTo(Maintask::class);
+//    }
+
 
 }
