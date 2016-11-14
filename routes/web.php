@@ -49,6 +49,6 @@ Route::get('task/destroy/{id}', array('uses' => 'TaskController@destroy'));
 // All Task
 Route::get('alltask/show', array('uses' => 'AlltaskController@show'));
 Route::get('alltask/edit/{id}', array('uses' => 'AlltaskController@edit'));
-Route::post('alltask/update', array('uses' => 'AlltaskController@update'));
-Route::get('alltask/destroy/{id}', array('uses' => 'AlltaskController@destroy'));
+//Route::post('alltask/update', array('uses' => 'AlltaskController@update'));
+//Route::get('alltask/destroy/{id}', array('uses' => 'AlltaskController@destroy'));
 

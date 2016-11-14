@@ -13,6 +13,22 @@
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
 
+    <div class="form-group row add">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            {!! Form::open(['method'=>'GET','url'=>'maintask/show','class'=>'navbar-form navbar-left']) !!}
+            <div class="input-group custom-search-form">
+                <input type="text" name="search" class="form-control" placeholder="Search ....">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default-sm">
+              <i class="fa fa-search"></i>
+          </button>
+        </span>
+            </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
 
     {!! Form::open(array( 'class'=>'form-horizontal inline','method'=>'get','files'=> true)) !!}
 

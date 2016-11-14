@@ -84,12 +84,17 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
 //        $tasks = Task::all();
 
-          $tasks = Task::paginate(20);
+        $tasks = Task::orderby('title');
+        $search = $request->input('search');
+        if(!empty($search)){
+            $tasks->Where('title','LIKE','%'.$search.'%');
 
+        }
+        $tasks= $tasks-> paginate(20);
         return view('task.show', compact('tasks'));
     }
 

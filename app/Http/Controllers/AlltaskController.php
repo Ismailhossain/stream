@@ -56,10 +56,10 @@ class AlltaskController extends Controller
     public function show()
     {
 
-        $maintasks = Maintask::all();
+//        $maintasks = Maintask::all();
         $alltasks = MaintaskTask::all();
-        $tasks = Task::all();
-        return view('alltask.show', compact('alltasks','maintasks','tasks'));
+//        $tasks = Task::all();
+        return view('alltask.show', compact('alltasks'));
     }
 
     /**

@@ -62,14 +62,21 @@ class MaintaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+
+    public function show(Request $request)
     {
-        $maintasks = Maintask::all();
+//        $maintasks = Maintask::all();
 
-//          $maintasks = Maintask::paginate(5);
+        $maintasks = Maintask::orderby('title');
+        $search = $request->input('search');
+        if(!empty($search)){
+            $maintasks->Where('title','LIKE','%'.$search.'%');
 
+        }
+        $maintasks= $maintasks-> paginate(20);
         return view('maintask.show', compact('maintasks'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -1,5 +1,19 @@
 stream
 
+Instructions -
+
+1. Setup the Laravel 5.3 Environment.
+2. Clone from git.
+3. Rename the .env.example file into .env file only.
+4. Setup the database name, username and password inside the .env file according to you.
+5. Update Composer (First go inside the project folder).
+6. Migrate Database.
+7. Seed the Status table.
+8. Then from the Applcation add the Parent Task and Task.
+
+:)
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

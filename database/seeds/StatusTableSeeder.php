@@ -12,9 +12,7 @@ class StatusTableSeeder extends Seeder
      */
     public function run()
     {
-        if (App::environment() === 'production') {
-            exit('Lets stop');
-        }
+
         Status::create([
             'id'            => 1,
             'title_id'            => 0,
