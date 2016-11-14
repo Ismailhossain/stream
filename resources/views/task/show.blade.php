@@ -59,7 +59,7 @@
 
                     <a class="btn btn-small btn-info" href="{{url('task/edit/'.$task->id)}}">Edit this Task</a>
 
-                    <a class="btn btn-small btn-success" href="{{ url('task/destroy/' . $task->id) }}">Delete this Task</a>
+                    <a class="btn btn-small btn-success" href="{{ url('task/destroy/' . $task->id) }}" onclick="return confirm('Are you sure you want to delete this Task?')">Delete this Task</a>
 
                 </td>
 
